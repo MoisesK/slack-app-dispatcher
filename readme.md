@@ -14,7 +14,7 @@ composer require moises-kalebe/slack-dispatcher-php
 
 exemplo de onde encontrar a url:
 
-<img height="320" src="assets/readme/token_locale_example.png" width="500"/>
+<img height="" src="assets/readme/token_locale_example.png" width=""/>
 
 Link exemplo:
 ```
