@@ -1,18 +1,27 @@
 <?php
 
-namespace MoisesK\SlackDispatcherPHP\Dto;
+namespace MoisesK\SlackDispatcherPHP;
 
 use JsonSerializable;
 use MoisesK\SlackDispatcherPHP\Collection\MessageAttachmentCollection;
 
 final class SlackMessage implements JsonSerializable
 {
-    protected string $message;
+    protected string $text;
+    protected MessageAttachmentCollection $attachments;
 
-    public function __construct(
-        protected readonly string $text,
-        protected readonly MessageAttachmentCollection $attachments
-    ){
+    public function __construct()
+    {
+        $this->attachments = new MessageAttachmentCollection();
+    }
+
+    public function setText(string $text) {
+        $this->text = $text;
+    }
+
+    public function addAttachment(Attachment $attachment): void
+    {
+        $this->attachments->offsetSet(null, value: $attachment);
     }
 
     public function jsonSerialize(): array

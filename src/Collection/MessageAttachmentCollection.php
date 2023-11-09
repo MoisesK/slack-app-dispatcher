@@ -6,7 +6,7 @@ use ArrayAccess;
 use Countable;
 use Iterator;
 use JsonSerializable;
-use MoisesK\SlackDispatcherPHP\Dto\MessageAttachment;
+use MoisesK\SlackDispatcherPHP\Attachment;
 use RuntimeException;
 
 final class MessageAttachmentCollection implements ArrayAccess, Countable, Iterator, JsonSerializable
@@ -18,7 +18,7 @@ final class MessageAttachmentCollection implements ArrayAccess, Countable, Itera
 
     protected function className(): string
     {
-        return MessageAttachment::class;
+        return Attachment::class;
     }
 
     public function offsetExists($offset): bool

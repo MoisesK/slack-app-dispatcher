@@ -3,12 +3,12 @@
 namespace MoisesK\SlackDispatcherPHP;
 
 use Exception;
-use MoisesK\SlackDispatcherPHP\Dto\SlackMessage;
 
-final class Dispatcher
+final class MessageDispatcher
 {
     /**
-     * You can get webhook url in https://api.slack.com/apps/{app_id}/incoming-webhooks?
+     * You can get webhook url in
+     * @see https://api.slack.com/apps/{app_id}/incoming-webhooks?
      */
     public function __construct(
         private readonly string $webhookUrl
