@@ -2,6 +2,13 @@
 
 Simples dispatch para mensagens do slack adaptado para melhor manuseio.
 
+## Instalação
+
+Para realizar a instalação desta dependência basta executar o seguinte comando:
+```shell
+composer require moises-kalebe/slack-dispatcher-php
+```
+
 ## Utilização
 
 ```php
