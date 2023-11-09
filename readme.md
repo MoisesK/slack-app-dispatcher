@@ -6,7 +6,7 @@
 
 #### Para realizar a instalação desta dependência basta executar o seguinte comando:
 ```shell
-composer require moises-kalebe/slack-dispatcher-php
+composer require moiseskalebe/slack-dispatcher-php
 ```
 
 ## Utilização
