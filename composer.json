@@ -1,5 +1,5 @@
 {
-    "name": "moises-kalebe/slack-dispatcher-php",
+    "name": "moiseskalebe/slack-dispatcher-php",
     "description": "Simples publicador de mensagens no slack",
     "type": "library",
     "license": "GPL-3.0-or-later",
