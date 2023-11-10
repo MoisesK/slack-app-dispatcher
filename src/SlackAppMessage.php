@@ -40,6 +40,11 @@ final class SlackAppMessage implements JsonSerializable
     {
         $values = get_object_vars($this);
         foreach ($values as $property => $value) {
+            if (is_null($value)) {
+                unset($values[$property]);
+                continue;
+            }
+
             $newPropertyName = mb_strtolower(
                 preg_replace('/(?<!^)[A-Z]/', '_$0', $property)
             );
