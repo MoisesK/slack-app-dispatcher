@@ -108,16 +108,8 @@ A contribuição para este projeto é realizada por meio de Pull Requests (PRs).
     - Faça um fork do repositório para a sua conta no GitHub.
     - Clone o repositório forkado para a sua máquina local.
 
-```bash
-git clone https://github.com/seu-usuario/[Nome do Seu Projeto].git
-```
-
 2. ***Crie uma Branch para sua Contribuição:***
    - Crie uma nova branch para trabalhar na sua contribuição.
-
-```bash
-git clone https://github.com/seu-usuario/[Nome do Seu Projeto].git
-```
 
 3. ***Faça as Modificações:***
     - Implemente as alterações necessárias no código..
