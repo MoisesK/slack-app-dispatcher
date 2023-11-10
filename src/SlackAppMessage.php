@@ -68,9 +68,8 @@ final class SlackAppMessage implements JsonSerializable
 
         $response = curl_exec($ch);
 
-        if ($response === false) {
-            $error = curl_error($ch);
-            throw new Exception($error);
+        if ($response === false || $response === 'no_service') {
+            throw new Exception(curl_error($ch) ?? $response);
         }
 
         curl_close($ch);
