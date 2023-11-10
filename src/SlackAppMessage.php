@@ -2,20 +2,27 @@
 
 namespace MoisesK\SlackDispatcherPHP;
 
+use Exception;
 use JsonSerializable;
 use MoisesK\SlackDispatcherPHP\Collection\MessageAttachmentCollection;
 
-final class SlackMessage implements JsonSerializable
+final class SlackAppMessage implements JsonSerializable
 {
     protected string $text;
     protected MessageAttachmentCollection $attachments;
 
-    public function __construct()
-    {
+    /**
+     * For get our app webhook url:
+     * @see https://api.slack.com/apps
+     * @param string $webhookUrl
+     */
+    public function __construct(
+        private readonly string $webhookUrl
+    ) {
         $this->attachments = new MessageAttachmentCollection();
     }
 
-    public function setText(string $text) {
+    public function setHeaderText(string $text) {
         $this->text = $text;
     }
 
@@ -44,5 +51,23 @@ final class SlackMessage implements JsonSerializable
         }
 
         return $values;
+    }
+
+    public function dispatch(): void
+    {
+        $ch = curl_init($this->webhookUrl);
+        curl_setopt($ch, CURLOPT_POST, 1);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($this));
+        curl_setopt($ch, CURLOPT_HTTPHEADER, ['Content-Type: application/json']);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+        $response = curl_exec($ch);
+
+        if ($response === false) {
+            $error = curl_error($ch);
+            throw new Exception($error);
+        }
+
+        curl_close($ch);
     }
 }
